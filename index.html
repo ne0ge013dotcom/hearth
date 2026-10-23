@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hearth — a private family wall calendar</title>
+    <meta name="description" content="Hearth is a private, self-hosted family wall calendar that runs on the family's own Raspberry Pi." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23E4572E'/%3E%3Cpath d='M32 14 12 30h6v20h10V38h8v12h10V30h6z' fill='%23FBF8F3'/%3E%3C/svg%3E" />
+    <style>
+      :root {
+        --canvas: #fbf8f3;
+        --card: #ffffff;
+        --ink: #1f2933;
+        --muted: #6b7280;
+        --line: #e7e1d8;
+        --accent: #e4572e;
+        color-scheme: light dark;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --canvas: #17130f;
+          --card: #221d18;
+          --ink: #f3ede4;
+          --muted: #a89f94;
+          --line: #3a322a;
+          --accent: #f07850;
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--canvas);
+        color: var(--ink);
+        font: 17px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      main {
+        max-width: 44rem;
+        margin: 3rem auto 2rem;
+        padding: 2.25rem clamp(1.25rem, 4vw, 2.75rem);
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 1.5rem;
+      }
+      .brand { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.5rem; }
+      .brand svg { width: 3rem; height: 3rem; display: block; }
+      h1 { font-size: 2.1rem; line-height: 1.15; margin: 0; letter-spacing: -0.01em; }
+      h2 { font-size: 1.2rem; margin: 2rem 0 0.4rem; }
+      p, ul { margin: 0.6rem 0; }
+      ul { padding-left: 1.2rem; }
+      li { margin: 0.35rem 0; }
+      .lead { font-size: 1.25rem; color: var(--muted); margin-top: 0.75rem; }
+      .muted { color: var(--muted); margin-top: 0; }
+      code { font-size: 0.85em; background: var(--canvas); border: 1px solid var(--line); border-radius: 0.35rem; padding: 0.05em 0.35em; overflow-wrap: anywhere; }
+      a { color: var(--accent); }
+      .facts { list-style: none; padding: 1rem 1.2rem; background: var(--canvas); border: 1px solid var(--line); border-radius: 1rem; }
+      .button { display: inline-block; margin-top: 0.75rem; padding: 0.65rem 1.2rem; border-radius: 0.8rem; background: var(--ink); color: var(--canvas); text-decoration: none; font-weight: 600; }
+      footer { text-align: center; color: var(--muted); font-size: 0.9rem; padding: 0 1rem 3rem; }
+      @media (max-width: 40rem) { main { margin: 1rem; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#E4572E" /><path d="M32 14 12 30h6v20h10V38h8v12h10V30h6z" fill="#FBF8F3" /></svg>
+        <h1>Hearth</h1>
+      </header>
+
+      <p class="lead">A private family wall calendar, running on our own Raspberry Pi at home.</p>
+
+      <p>
+        Hearth shows our family’s calendars, chores, notes and smart-home controls on a touchscreen in the kitchen. It is a
+        personal, self-hosted project. It is not a public service, it has no user accounts for anyone outside our household,
+        and it does not collect, sell or share anyone’s data.
+      </p>
+
+      <h2>How it uses Google</h2>
+      <p>
+        When a family member chooses <b>Connect Google account</b>, Hearth asks Google for <b>read-only</b> access to their
+        calendars (<code>calendar.readonly</code>) and their email address (to label the account). It uses that access only to
+        show their events — and the colour each event was given — on our wall calendar. It never creates, edits or deletes
+        events, and the data stays on our own device.
+      </p>
+
+      <ul class="facts">
+        <li><b>Where it runs:</b> a Raspberry Pi on our home network</li>
+        <li><b>Google access:</b> read-only calendar + email address</li>
+        <li><b>Shared with:</b> no one</li>
+        <li><b>Ads / analytics / tracking:</b> none</li>
+      </ul>
+
+      <p><a class="button" href="privacy.html">Read the privacy policy</a></p>
+    </main>
+    <footer>Hearth · personal family project · <a href="privacy.html">Privacy policy</a></footer>
+  </body>
+</html>
